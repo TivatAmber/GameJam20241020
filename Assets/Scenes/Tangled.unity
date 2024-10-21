@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 698829152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.514819, y: -2.2441652, z: 0}
+  m_LocalPosition: {x: -5.284772, y: -2.4707193, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,6 +222,8 @@ MonoBehaviour:
   nowTime: 0
   slowDownRatio: 100
   maxTime: 10
+  friction: 10
+  accelerate: 2
   whiteBallPrefab: {fileID: 1048246418031868784, guid: 4d178b3eb8e8ff749a5e19ba8fb670ff, type: 3}
   blackBallPrefab: {fileID: 8229721995923513564, guid: bbd72624d0b1c374cb51485f43dc6629, type: 3}
   upOrder: 119

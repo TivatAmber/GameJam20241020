@@ -16,6 +16,8 @@ namespace Tangled
         
         [SerializeField] private int slowDownRatio;
         [SerializeField] private float maxTime;
+        [SerializeField] private float friction;
+        [SerializeField] private float accelerate;
         [SerializeField] private GameObject whiteBallPrefab;
         [SerializeField] private GameObject blackBallPrefab;
 
@@ -24,7 +26,8 @@ namespace Tangled
         [SerializeField] private KeyCode leftOrder;
         [SerializeField] private KeyCode rightOrder;
         public Transform WhiteBallPos => _balls[0].transform;
-        public int SlowDownRatio => slowDownRatio;
+        public float Friction => friction;
+        public float Accelerate => accelerate;
         protected override void OnStart()
         {
             nowTime = 0f;
