@@ -12,7 +12,6 @@ namespace ShootGame
         [ReadOnly] [SerializeField] private Transform endPoint;
         [ReadOnly] [SerializeField] private Transform pointsFather;
         [ReadOnly] [SerializeField] private List<Transform> pointList;
-        #if UNITY_EDITOR
         [ReadOnly] [SerializeField] private bool showPath;
 
         public bool ShowPath
@@ -22,7 +21,6 @@ namespace ShootGame
         }
 
         public float PointRadius => pointRadius;
-        #endif
 
         public Transform StartPoint
         {

@@ -14,8 +14,8 @@ namespace ShootGame
         [SerializeField] private float summonInterval;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private List<GameObject> wordsPrefab;
-        [ReadOnly] [SerializeField] private List<float> wordsProbList = new();
-        [ReadOnly] [SerializeField] private List<float> tempProbList = new();
+        [HideInInspector] [ReadOnly] [SerializeField] private List<float> wordsProbList = new();
+        [HideInInspector] [ReadOnly] [SerializeField] private List<float> tempProbList = new();
         protected override void OnStart()
         {
             mainCamera = Camera.main;

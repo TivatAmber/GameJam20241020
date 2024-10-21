@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ShootGame;
 using UnityEditor;
 using UnityEngine;
@@ -8,6 +7,11 @@ namespace Editor.ShootGame
     [CustomEditor(typeof(ShootGameManager))]
     public class ShootGameManagerEditor: UnityEditor.Editor
     {
+        private void OnValidate()
+        {
+            FitProbNum();
+        }
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
