@@ -23,7 +23,7 @@ namespace ShootGame
             badNum = 0;
         }
         public GameObject BulletPrefab => bulletPrefab;
-        public IList<GameObject> WordsPrefab => wordsPrefab.AsReadOnly();
+        public IReadOnlyList<GameObject> WordsPrefab => wordsPrefab.AsReadOnly();
         public IList<float> WordsProbList => wordsProbList;
         public IList<float> TempProbList => tempProbList;
         public Camera MainCamera => mainCamera;

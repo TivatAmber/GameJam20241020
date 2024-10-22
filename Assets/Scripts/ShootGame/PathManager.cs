@@ -11,7 +11,7 @@ namespace ShootGame
         [ReadOnly] [SerializeField] private Transform startPoint;
         [ReadOnly] [SerializeField] private Transform endPoint;
         [ReadOnly] [SerializeField] private Transform pointsFather;
-        [ReadOnly] [SerializeField] private List<Transform> pointList;
+        [ReadOnly] [SerializeField] private List<Transform> pointList = new();
         [ReadOnly] [SerializeField] private bool showPath;
 
         public bool ShowPath
@@ -36,7 +36,7 @@ namespace ShootGame
         {
             set => pointsFather = value;
         }
-        public IList<Transform> PointList
+        public IReadOnlyList<Transform> PointList
         {
             get => pointList.AsReadOnly();
             set => pointList = new List<Transform>(value);

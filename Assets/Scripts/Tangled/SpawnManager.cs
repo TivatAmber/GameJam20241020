@@ -29,7 +29,7 @@ namespace Tangled
             get => whiteSpawnPoint;
             set => whiteSpawnPoint = value;
         }
-        public IList<Transform> BlackSpawnPoints
+        public IReadOnlyList<Transform> BlackSpawnPoints
         {
             get => blackSpawnPoints.AsReadOnly();
             set => blackSpawnPoints = new List<Transform>(value);
