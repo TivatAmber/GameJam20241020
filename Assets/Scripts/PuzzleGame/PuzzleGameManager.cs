@@ -16,9 +16,9 @@ namespace PuzzleGame
         [ReadOnly] [SerializeField] private Camera nowCamera;
         [ReadOnly] [SerializeField] private List<PuzzlePiece> pieces = new();
         [ReadOnly] [SerializeField] private List<int> inFieldIndex = new();
-        [ReadOnly] [SerializeField] private List<int> doneIndex;
+        [ReadOnly] [SerializeField] private List<int> doneIndex = new ();
         
-        [SerializeField] private AnchorPoint anchorPoint;
+        [SerializeField] private AnchorPoint anchorPointPrefab;
         [SerializeField] private KeyCode dragButton;
         [SerializeField] private float endPointRadius;
         [SerializeField] private float pieceMoveSpeed;
@@ -51,7 +51,7 @@ namespace PuzzleGame
         public float EndPointRadius => endPointRadius;
         public float PieceMoveSpeed => pieceMoveSpeed;
 
-        public AnchorPoint AnchorPoint => anchorPoint;
+        public AnchorPoint AnchorPointPrefab => anchorPointPrefab;
 
         protected override void OnStart()
         {

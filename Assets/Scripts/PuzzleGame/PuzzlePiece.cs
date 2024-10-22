@@ -1,11 +1,12 @@
 using System;
+using GameBase;
 using Tools;
 using UnityEngine;
 
 namespace PuzzleGame
 {
-    [RequireComponent(typeof(Collider2D))]
-    public class PuzzlePiece: MonoBehaviour
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class PuzzlePiece: AdsorbedObject
     {
         private enum Status
         {
@@ -14,29 +15,18 @@ namespace PuzzleGame
             Dragging,
             Done,
         }
-        [SerializeField] private int index;
-        [ReadOnly] [SerializeField] private float moveSpeed;
         [ReadOnly] [SerializeField] private SpriteRenderer spriteRenderer;
-        [ReadOnly] [SerializeField] private Collider2D nowCollider2D;
-
-        [ReadOnly] [SerializeField] private Camera nowCamera;
         [ReadOnly] [SerializeField] private Transform movingTargetTransform;
         [ReadOnly] [SerializeField] private AnchorPoint anchorPoint;
-        [ReadOnly] [SerializeField] private KeyCode dragButton;
         [ReadOnly] [SerializeField] private Status status;
         [ReadOnly] [SerializeField] private float endPointRadius;
         [ReadOnly] [SerializeField] private float anchorPointRadius;
+        [ReadOnly] [SerializeField] private float moveSpeed;
         
         public SpriteRenderer SpriteRenderer
         {
             set => spriteRenderer = value;
         }
-
-        public Collider2D Collider2D
-        {
-            set => nowCollider2D = value;
-        }
-        public int Index => index;
 
         public AnchorPoint AnchorPoint
         {
@@ -103,15 +93,6 @@ namespace PuzzleGame
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        private bool CheckDragging()
-        {
-            if (!Input.GetKeyDown(dragButton)) return false;
-            
-            Vector2 mousePos = nowCamera.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            return hit.collider && hit.collider == nowCollider2D;
         }
 
         private bool CheckDone()

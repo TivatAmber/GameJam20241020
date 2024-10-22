@@ -50,7 +50,7 @@ namespace Editor.PuzzleGame
                 
                 foreach (var puzzle in tempList)
                 {
-                    var nowPoint = Instantiate(t.AnchorPoint.gameObject, fieldTransform).GetComponent<AnchorPoint>();
+                    var nowPoint = Instantiate(t.AnchorPointPrefab.gameObject, fieldTransform).GetComponent<AnchorPoint>();
                     nowPoint.transform.position = fieldTransform.position;
                     nowPoint.TargetIndex = puzzle.Index;
                     nowPoint.name = "AnchorPoint" + puzzle.Index;

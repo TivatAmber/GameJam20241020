@@ -1,23 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
+using GameBase;
 using Tools;
+using TouchGame;
 using UnityEngine;
 
 namespace PuzzleGame
 {
-    public class AnchorPoint: MonoBehaviour
+    public class AnchorPoint: TouchPoint
     {
-        [SerializeField] private bool activate;
         [SerializeField] private List<AnchorPoint> nextActivate = new();
-        [ReadOnly] [SerializeField] private int targetIndex;
-
-        public int TargetIndex
-        {
-            get => targetIndex;
-            set => targetIndex = value;
-        }
-        public bool Activate => activate;
-
         public void ActiveNext()
         {
             foreach (var nextPoint in nextActivate.Where(nextPoint => !nextPoint.activate))
