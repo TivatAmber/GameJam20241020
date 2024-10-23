@@ -1,21 +1,22 @@
 using System.Collections.Generic;
 using Tools;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ShootGame
 {
-    public class ShootGameManager: Singleton<ShootGameManager>
+    public class ShootGameManager: BaseManager<ShootGameManager>
     {
         [ReadOnly] [SerializeField] private Camera mainCamera;
         [ReadOnly] [SerializeField] private float nowSummonInterval;
         [ReadOnly] [SerializeField] private int goodNum;
         [ReadOnly] [SerializeField] private int badNum;
+        [HideInInspector] [ReadOnly] [SerializeField] private List<float> wordsProbList = new();
+        [HideInInspector] [ReadOnly] [SerializeField] private List<float> tempProbList = new();
+
         [SerializeField] private float summonInterval;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private List<GameObject> wordsPrefab;
-        [HideInInspector] [ReadOnly] [SerializeField] private List<float> wordsProbList = new();
-        [HideInInspector] [ReadOnly] [SerializeField] private List<float> tempProbList = new();
         protected override void OnStart()
         {
             mainCamera = Camera.main;
@@ -61,6 +62,11 @@ namespace ShootGame
                 }
                 lst = nowSum;
             }
+        }
+
+        public override void EndGame()
+        {
+            base.EndGame();
         }
     }
 }

@@ -1,14 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tools;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace PuzzleGame
 {
-    public class PuzzleGameManager : Singleton<PuzzleGameManager>
+    public class PuzzleGameManager : BaseManager<PuzzleGameManager>
     {
         [ReadOnly] [SerializeField] private bool showConfig;
         [ReadOnly] [SerializeField] private float nowInterval;
@@ -17,7 +16,7 @@ namespace PuzzleGame
         [ReadOnly] [SerializeField] private List<PuzzlePiece> pieces = new();
         [ReadOnly] [SerializeField] private List<int> inFieldIndex = new();
         [ReadOnly] [SerializeField] private List<int> doneIndex = new ();
-        
+
         [SerializeField] private AnchorPoint anchorPointPrefab;
         [SerializeField] private KeyCode dragButton;
         [SerializeField] private float endPointRadius;
@@ -46,6 +45,12 @@ namespace PuzzleGame
             get => pieces.AsReadOnly();
             set => pieces = new List<PuzzlePiece>(value);
         }
+
+        // public IReadOnlyDictionary<int, AnchorPoint> PointDict
+        // {
+        //     get => _pointDict;
+        //     set => _pointDict = new Dictionary<int, AnchorPoint>(value);
+        // }
 
         public KeyCode DragButton => dragButton;
         public float EndPointRadius => endPointRadius;
@@ -106,9 +111,9 @@ namespace PuzzleGame
             if (inFieldIndex.Contains(index)) inFieldIndex.Remove(index);
         }
 
-        private void EndGame()
+        public override void EndGame()
         {
-            // TODO
+            base.EndGame();
         }
     }
 }

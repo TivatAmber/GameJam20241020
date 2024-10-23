@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Tangled
 {
-    public class TangledManager: Singleton<TangledManager>
+    public class TangledManager: BaseManager<TangledManager>
     {
         private List<BaseBall> _balls = new();
         [ReadOnly] [SerializeField] private int nowActiveBall;
@@ -114,9 +114,9 @@ namespace Tangled
             }
         }
 
-        void EndGame()
+        public override void EndGame()
         {
-            endGame = true;
+            base.EndGame();
         }
     }
 }

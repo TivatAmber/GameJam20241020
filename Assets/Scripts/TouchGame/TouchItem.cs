@@ -31,6 +31,13 @@ namespace TouchGame
             status = Status.Idle;
             dragButton = TouchGameManager.Instance.DragButton;
             anchorPointRadius = TouchGameManager.Instance.AnchorRadius;
+            var nowList = TouchGameManager.Instance.TouchPoints;
+            foreach (var point in nowList)
+            {
+                if (point.TargetIndex != index) continue;
+                anchorPoint = point;
+                break;
+            }
             nowCamera = Camera.main;
         }
         

@@ -1,17 +1,16 @@
-using System;
 using System.Collections.Generic;
 using GameBase;
 using Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TouchGame
 {
-    public class TouchGameManager : Singleton<TouchGameManager>
+    public class TouchGameManager : BaseManager<TouchGameManager>
     {
         [ReadOnly] [SerializeField] private bool showConfig;
         [ReadOnly] [SerializeField] private Camera nowCamera;
         [ReadOnly] [SerializeField] private List<TouchItem> touchItems = new();
+        [ReadOnly] [SerializeField] private List<TouchPoint> touchPoint = new();
         [ReadOnly] [SerializeField] private List<int> doneIndex = new ();
         
         [Header("Size")]
@@ -35,6 +34,12 @@ namespace TouchGame
         {
             get => touchItems.AsReadOnly();
             set => touchItems = new List<TouchItem>(value);
+        }
+
+        public IReadOnlyList<TouchPoint> TouchPoints
+        {
+            get => touchPoint.AsReadOnly();
+            set => touchPoint = new List<TouchPoint>(value);
         }
         public float FieldWidth => fieldWidth;
         public float FieldHeight => fieldHeight;
@@ -61,9 +66,9 @@ namespace TouchGame
             if (doneIndex.Count == touchItems.Count) EndGame();
         }
 
-        private void EndGame()
+        public override void EndGame()
         {
-            // TODO
+            base.EndGame();
         }
     }
 }

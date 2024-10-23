@@ -51,10 +51,10 @@ namespace Editor.TouchGame
                 nowPoint.TargetIndex = puzzle.Index;
                 nowPoint.name = "AnchorPoint" + puzzle.Index;
                     
-                puzzle.AnchorPoint = nowPoint;
                 tempAnchorPointList.Add(nowPoint);
             }
             t.AdsorbedObjects = tempList;
+            t.TouchPoints = tempAnchorPointList;
         }
                 
         private string ConvertToUnityPath(string systemPath)
@@ -79,7 +79,7 @@ namespace Editor.TouchGame
         {
             var t = target as TouchGameManager;
             if (!t.ShowConfig) return;
-            var anchorPoints = t.AdsorbedObjects;
+            var anchorPoints = t.TouchPoints;
             
             Handles.color = Color.red;
             Handles.DrawWireCube(t.transform.position, new Vector3(t.FieldWidth, t.FieldHeight, 1f));

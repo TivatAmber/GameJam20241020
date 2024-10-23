@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   global: 0
+  nextScene: {fileID: 102900000, guid: d3b4116bbb3f64d4eb97280457b4047f, type: 3}
   nowActiveBall: 0
   nowTurn: 0
   endGame: 0

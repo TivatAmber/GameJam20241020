@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PuzzleGame;
 using UnityEditor;
 using UnityEngine;
@@ -55,11 +56,13 @@ namespace Editor.PuzzleGame
                     nowPoint.TargetIndex = puzzle.Index;
                     nowPoint.name = "AnchorPoint" + puzzle.Index;
                     
-                    puzzle.AnchorPoint = nowPoint;
                     tempAnchorPointList.Add(nowPoint);
                 }
 
                 FieldManager.Instance.AnchorPoints = tempAnchorPointList;
+                // Debug.Log(tempDict.Count);
+                // t.PointDict = tempDict;
+                // Debug.Log(t.PointDict.Count);
             }
 
             t.Pieces = tempList;

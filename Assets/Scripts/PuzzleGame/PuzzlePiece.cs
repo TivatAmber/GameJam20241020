@@ -45,6 +45,15 @@ namespace PuzzleGame
             endPointRadius = PuzzleGameManager.Instance.EndPointRadius;
             dragButton = PuzzleGameManager.Instance.DragButton;
             moveSpeed = PuzzleGameManager.Instance.PieceMoveSpeed;
+            // Debug.Log(PuzzleGameManager.Instance.PointDict.Count);
+            var nowList = FieldManager.Instance.AnchorPoints;
+            foreach (var point in nowList)
+            {
+                if (point.TargetIndex != index) continue;
+                anchorPoint = point;
+                break;
+            }
+
             anchorPointRadius = FieldManager.Instance.AnchorRadius;
             nowCamera = Camera.main;
         }

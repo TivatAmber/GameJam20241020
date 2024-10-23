@@ -11,6 +11,7 @@ namespace GameBase
         public bool Activate => activate;
         public int TargetIndex
         {
+            get => targetIndex;
             set => targetIndex = value;
         }
     }
