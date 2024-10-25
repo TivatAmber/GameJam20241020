@@ -1,9 +1,9 @@
-using System.ComponentModel;
 using UnityEditor;
 using UnityEngine;
 
 namespace Tools
 {
+    #if UNITY_EDITOR
     class ReadOnlyAttribute : PropertyAttribute
     {
         
@@ -24,4 +24,5 @@ namespace Tools
             GUI.enabled = true;
         }
     }
+    #endif
 }

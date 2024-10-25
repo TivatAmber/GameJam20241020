@@ -10,8 +10,8 @@ namespace PuzzleGame
         [SerializeField] private float fieldHeight;
         [SerializeField] private float anchorRadius;
         
-        [ReadOnly] [SerializeField] private List<AnchorPoint> anchorPoints = new ();
-        [ReadOnly] [SerializeField] private bool showConfig;
+        [SerializeField] private List<AnchorPoint> anchorPoints = new ();
+        [SerializeField] private bool showConfig;
         
         public float FieldWidth => fieldWidth;
         public float FieldHeight => fieldHeight;

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5023503191717178941}
   - component: {fileID: 960722884812872477}
-  - component: {fileID: 6420564436515636814}
   - component: {fileID: 4906295507646043817}
-  - component: {fileID: 769265788825758469}
   - component: {fileID: 3564645677594694083}
+  - component: {fileID: 3931094131758498175}
+  - component: {fileID: 1105529317344243220}
   m_Layer: 6
   m_Name: platform
   m_TagString: Untagged
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6420564436515636814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806580564784051822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0641c3ed9b933884aa1d1676362c2add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 7976173135919007781}
-  - {fileID: 8856764724000638351}
-  speed: 2
 --- !u!61 &4906295507646043817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,18 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.03523337}
   m_EdgeRadius: 0
---- !u!114 &769265788825758469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806580564784051822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9c902fcf6265142a7eaa1b92bdb074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3564645677594694083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,7 +162,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.022584159}
@@ -206,6 +178,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.0890299}
   m_EdgeRadius: 0
+--- !u!114 &3931094131758498175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806580564784051822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9c902fcf6265142a7eaa1b92bdb074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1105529317344243220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806580564784051822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0641c3ed9b933884aa1d1676362c2add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  speed: 2
 --- !u!1 &7976173135919007781
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace ShootGame
         [SerializeField] private KeyCode attackButton;
         [SerializeField] private float bulletSpeed;
         [SerializeField] private float attackInterval;
-        [ReadOnly] [SerializeField] private float nowInterval;
+        [SerializeField] private float nowInterval;
 
         private void Update()
         {

@@ -8,11 +8,11 @@ namespace Inter
 {
     public class InterManager : BaseManager<InterManager>
     {
-        [ReadOnly] [SerializeField] private float nowInterval;
-        [ReadOnly] [SerializeField] private int lstImageIndex;
-        [ReadOnly] [SerializeField] private int nowIndex;
+       [SerializeField] private float nowInterval;
+        [SerializeField] private int lstImageIndex;
+         [SerializeField] private int nowIndex;
         [SerializeField] private float showInterval;
-        [SerializeField] private List<GameObject> objectList;
+        [SerializeField] private List<GameObject> objectList = new();
 
         public IReadOnlyList<GameObject> ObjectList
         {

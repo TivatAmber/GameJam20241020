@@ -5,8 +5,8 @@ namespace Tangled.Balls
 {
     public class WhiteBall: BaseBall
     {
-        [ReadOnly] [SerializeField] private Vector3 targetPos;
-        [ReadOnly] [SerializeField] private float targetRadius;
+        [SerializeField] private Vector3 targetPos;
+        [SerializeField] private float targetRadius;
         protected override void Awake()
         {
             base.Awake();

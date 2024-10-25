@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 using Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Tangled.Balls
@@ -13,8 +11,8 @@ namespace Tangled.Balls
         [Serializable]
         private class MoveRecord
         {
-            [ReadOnly] [SerializeField] private Vector3 speed;
-            [ReadOnly] [SerializeField] private Vector3 pos;
+            [SerializeField] private Vector3 speed;
+            [SerializeField] private Vector3 pos;
             public Vector3 Speed => speed;
             public Vector3 Pos => pos;
 
@@ -26,14 +24,15 @@ namespace Tangled.Balls
         }
 
         private const float MinSpeed = 0.1f;
-        [ReadOnly] [SerializeField] private Transform spawn;
-        [ReadOnly] [SerializeField] private MoveRecord nowRecord;
-        [ReadOnly] [SerializeField] private Vector3 nowSpeed;
-        [ReadOnly] [SerializeField] private bool auto;
-        [ReadOnly] [SerializeField] private int nowTargetIndex;
-        [ReadOnly] [SerializeField] private float friction;
-        [ReadOnly] [SerializeField] private float accelerate;
-        [ReadOnly] [SerializeField] private float maxSpeed;
+        [SerializeField] private Transform spawn;
+        [SerializeField] private MoveRecord nowRecord;
+        [SerializeField] private Vector3 nowSpeed;
+        [SerializeField] private bool auto;
+        [SerializeField] private int nowTargetIndex;
+        [SerializeField] private float friction;
+        [SerializeField] private float accelerate;
+        [SerializeField] private float maxSpeed;
+        [SerializeField] private float declineRatio;
         
         [SerializeField] private List<MoveRecord> _record = new();
         public Transform Spawn
@@ -96,6 +95,7 @@ namespace Tangled.Balls
             transform.localScale = new Vector3(size, size, 1f);
             accelerate = TangledManager.Instance.Accelerate;
             friction = TangledManager.Instance.Friction;
+            declineRatio = TangledManager.Instance.DeclineRatio;
         }
 
         private void FixedUpdate()
@@ -107,6 +107,13 @@ namespace Tangled.Balls
                 else Move(nowRecord.Speed);
                 NextTarget();
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            var normal = other.contacts[0].normal;
+            var dire = Vector2.Reflect(nowSpeed, normal);
+            nowSpeed = dire * declineRatio;
         }
     }
 }

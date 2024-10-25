@@ -5,10 +5,10 @@ namespace ShootGame
 {
     public class Words: MonoBehaviour
     {
-        [ReadOnly] [SerializeField] private int nowTargetIndex;
-        [ReadOnly] [SerializeField] private Vector3 nowTargetPos;
-        [ReadOnly] [SerializeField] private float pointRadius;
-        [ReadOnly] [SerializeField] private int endIndex;
+        [SerializeField] private int nowTargetIndex;
+         [SerializeField] private Vector3 nowTargetPos;
+        [SerializeField] private float pointRadius;
+        [SerializeField] private int endIndex;
         [SerializeField] private bool good;
         [SerializeField] private float speed;
 

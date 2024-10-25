@@ -7,12 +7,12 @@ namespace ShootGame
 {
     public class ShootGameManager: BaseManager<ShootGameManager>
     {
-        [ReadOnly] [SerializeField] private Camera mainCamera;
-        [ReadOnly] [SerializeField] private float nowSummonInterval;
-        [ReadOnly] [SerializeField] private int goodNum;
-        [ReadOnly] [SerializeField] private int badNum;
-        [HideInInspector] [ReadOnly] [SerializeField] private List<float> wordsProbList = new();
-        [HideInInspector] [ReadOnly] [SerializeField] private List<float> tempProbList = new();
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private float nowSummonInterval;
+         [SerializeField] private int goodNum;
+         [SerializeField] private int badNum;
+        [SerializeField] private List<float> wordsProbList = new();
+         [SerializeField] private List<float> tempProbList = new();
 
         [SerializeField] private float summonInterval;
         [SerializeField] private GameObject bulletPrefab;

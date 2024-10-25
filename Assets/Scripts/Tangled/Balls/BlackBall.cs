@@ -5,8 +5,8 @@ namespace Tangled.Balls
 {
     public class BlackBall : BaseBall
     {
-        [ReadOnly] [SerializeField] private Transform whiteBallTransform;
-        [ReadOnly] [SerializeField] private float pointRadius;
+        [SerializeField] private Transform whiteBallTransform;
+        [SerializeField] private float pointRadius;
 
         bool GetWhiteBall()
         {

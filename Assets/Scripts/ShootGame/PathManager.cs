@@ -8,11 +8,11 @@ namespace ShootGame
     public class PathManager : Tools.Singleton<PathManager>
     {
         [SerializeField] private float pointRadius;
-        [ReadOnly] [SerializeField] private Transform startPoint;
-        [ReadOnly] [SerializeField] private Transform endPoint;
-        [ReadOnly] [SerializeField] private Transform pointsFather;
-        [ReadOnly] [SerializeField] private List<Transform> pointList = new();
-        [ReadOnly] [SerializeField] private bool showPath;
+        [SerializeField] private Transform startPoint;
+        [SerializeField] private Transform endPoint;
+         [SerializeField] private Transform pointsFather;
+        [SerializeField] private List<Transform> pointList = new();
+         [SerializeField] private bool showPath;
 
         public bool ShowPath
         {

@@ -9,15 +9,15 @@ namespace Tangled
     public class TangledManager: BaseManager<TangledManager>
     {
         private List<BaseBall> _balls = new();
-        [ReadOnly] [SerializeField] private int nowActiveBall;
-        [ReadOnly] [SerializeField] private int nowTurn;
-        [ReadOnly] [SerializeField] private bool endGame;
-        [ReadOnly] [SerializeField] private float nowTime;
+        [SerializeField] private int nowActiveBall;
+        [SerializeField] private int nowTurn;
+        [SerializeField] private float nowTime;
         
         [SerializeField] private int slowDownRatio;
         [SerializeField] private float maxTime;
         [SerializeField] private float friction;
         [SerializeField] private float accelerate;
+        [SerializeField] private float declineRatio;
         [SerializeField] private GameObject whiteBallPrefab;
         [SerializeField] private GameObject blackBallPrefab;
 
@@ -28,16 +28,24 @@ namespace Tangled
         public Transform WhiteBallPos => _balls[0].transform;
         public float Friction => friction;
         public float Accelerate => accelerate;
+        public float DeclineRatio => declineRatio;
         protected override void OnStart()
+        {
+            RestartGame();
+        }
+
+        public void RestartGame()
         {
             nowTime = 0f;
             nowActiveBall = 0;
+            nowTurn = 0;
+            foreach (var ball in _balls) Destroy(ball.gameObject);
+            _balls.Clear();
             var spawn = SpawnManager.Instance.WhiteSpawnPoint;
             var whiteBall = Instantiate(whiteBallPrefab, spawn.position, Quaternion.identity).GetComponent<WhiteBall>();
             _balls.Add(whiteBall);
             whiteBall.Spawn = spawn;
             whiteBall.Reset();
-            endGame = false;
         }
 
         Vector3 GetForward()
@@ -51,7 +59,6 @@ namespace Tangled
         }
         private void Update()
         {
-            if (endGame) return;
             var forward = GetForward();
             _balls[nowActiveBall].Move(forward);
             nowTime += Time.deltaTime;
@@ -87,7 +94,6 @@ namespace Tangled
 
         public void NextTurn()
         {
-            if (endGame) return;
             TurnReset();
             _balls[nowActiveBall].Auto = true;
             nowTurn += 1;

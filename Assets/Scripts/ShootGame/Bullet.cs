@@ -6,8 +6,8 @@ namespace ShootGame
 {
     public class Bullet: MonoBehaviour
     {
-        [ReadOnly] [SerializeField] private float speed;
-        [ReadOnly] [SerializeField] private Vector3 forward;
+        [SerializeField] private float speed;
+        [SerializeField] private Vector3 forward;
         private SpriteRenderer _spriteRenderer;
 
         private void Awake()

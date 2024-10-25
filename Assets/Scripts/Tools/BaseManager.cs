@@ -7,12 +7,12 @@ namespace Tools
     public class BaseManager<T> : Singleton<T>
         where T : MonoBehaviour
     {
-        [SerializeField] private SceneAsset nextScene;
+        [SerializeField] private int nextScene = -1;
 
         public virtual void EndGame()
         {
-            if (nextScene)
-                SceneManager.LoadScene(nextScene.name);
+            if (nextScene != -1)
+                SceneManager.LoadScene(nextScene);
         }
     }
 }

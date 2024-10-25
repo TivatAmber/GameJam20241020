@@ -7,13 +7,13 @@ namespace Tangled
 {
     public class SpawnManager: Singleton<SpawnManager>
     {
-        [ReadOnly] [SerializeField] private Transform blackSpawnPointsFather;
-        [ReadOnly] [SerializeField] private Transform whiteSpawnPoint;
-        [ReadOnly] [SerializeField] private List<Transform> blackSpawnPoints = new();
-        [ReadOnly] [SerializeField] private Transform targetPoint;
+        [SerializeField] private Transform blackSpawnPointsFather;
+        [SerializeField] private Transform whiteSpawnPoint;
+        [SerializeField] private List<Transform> blackSpawnPoints = new();
+         [SerializeField] private Transform targetPoint;
         [SerializeField] private float pointRadius;
         [SerializeField] private float targetRadius;
-        [ReadOnly] [SerializeField] private bool showPath;
+        [SerializeField] private bool showPath;
         public bool ShowPath
         {
             get => showPath;

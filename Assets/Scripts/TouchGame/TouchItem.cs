@@ -13,9 +13,9 @@ namespace TouchGame
             Dragging,
             Done,
         }
-        [ReadOnly] [SerializeField] private TouchPoint anchorPoint;
-        [ReadOnly] [SerializeField] private Status status;
-        [ReadOnly] [SerializeField] private float anchorPointRadius;
+        [SerializeField] private TouchPoint anchorPoint;
+        [SerializeField] private Status status;
+        [SerializeField] private float anchorPointRadius;
 
         public TouchPoint AnchorPoint
         {

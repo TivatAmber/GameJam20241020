@@ -7,11 +7,11 @@ namespace TouchGame
 {
     public class TouchGameManager : BaseManager<TouchGameManager>
     {
-        [ReadOnly] [SerializeField] private bool showConfig;
-        [ReadOnly] [SerializeField] private Camera nowCamera;
-        [ReadOnly] [SerializeField] private List<TouchItem> touchItems = new();
-        [ReadOnly] [SerializeField] private List<TouchPoint> touchPoint = new();
-        [ReadOnly] [SerializeField] private List<int> doneIndex = new ();
+        [SerializeField] private bool showConfig;
+        [SerializeField] private Camera nowCamera;
+        [SerializeField] private List<TouchItem> touchItems = new();
+        [SerializeField] private List<TouchPoint> touchPoint = new();
+        [SerializeField] private List<int> doneIndex = new ();
         
         [Header("Size")]
         [SerializeField] private float fieldWidth;

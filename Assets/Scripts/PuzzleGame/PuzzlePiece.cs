@@ -15,13 +15,18 @@ namespace PuzzleGame
             Dragging,
             Done,
         }
-        [ReadOnly] [SerializeField] private SpriteRenderer spriteRenderer;
-        [ReadOnly] [SerializeField] private Transform movingTargetTransform;
-        [ReadOnly] [SerializeField] private AnchorPoint anchorPoint;
-        [ReadOnly] [SerializeField] private Status status;
-        [ReadOnly] [SerializeField] private float endPointRadius;
-        [ReadOnly] [SerializeField] private float anchorPointRadius;
-        [ReadOnly] [SerializeField] private float moveSpeed;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Transform movingTargetTransform;
+        [SerializeField] private AnchorPoint anchorPoint;
+        [SerializeField] private Status status;
+        [SerializeField] private float endPointRadius;
+        [SerializeField] private float anchorPointRadius;
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float rotating;
+        [SerializeField] private bool startRotate;
+        [SerializeField] private bool done;
+        
+        [SerializeField] private Sprite sprite;
         
         public SpriteRenderer SpriteRenderer
         {
@@ -65,14 +70,37 @@ namespace PuzzleGame
 
         private void HandleStatus()
         {
+            if (startRotate)
+            {
+                var nowRotation = transform.rotation.eulerAngles;
+                transform.Rotate(rotating * Time.deltaTime, 0f, 0f);
+                // Debug.Log(nowRotation);
+
+                if (!done && nowRotation.x > 85f)
+                {
+                    rotating = -rotating;
+                    done = true;
+                    spriteRenderer.sprite = sprite;
+                }
+                if (done && nowRotation.x > 180f)
+                {
+                    rotating = 0;
+                    done = false;
+                    nowRotation = -nowRotation;
+                    transform.Rotate(nowRotation);
+                }
+            }
+
             switch (status)
             {
                 case Status.Moving:
                     if (CheckDragging())
                     {
-                        // TODO More Animation
                         transform.rotation = Quaternion.identity;
                         status = Status.Touched;
+                        rotating = 30f;
+                        done = false;
+                        startRotate = true;
                     }
                     transform.position += (movingTargetTransform.position - transform.position).normalized * (moveSpeed * Time.deltaTime);
                     if (Vector3.Distance(transform.position, movingTargetTransform.position) <= endPointRadius)

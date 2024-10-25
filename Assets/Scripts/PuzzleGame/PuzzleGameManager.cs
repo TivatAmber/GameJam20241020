@@ -9,13 +9,13 @@ namespace PuzzleGame
 {
     public class PuzzleGameManager : BaseManager<PuzzleGameManager>
     {
-        [ReadOnly] [SerializeField] private bool showConfig;
-        [ReadOnly] [SerializeField] private float nowInterval;
-        [ReadOnly] [SerializeField] private Transform endPoint;
-        [ReadOnly] [SerializeField] private Camera nowCamera;
-        [ReadOnly] [SerializeField] private List<PuzzlePiece> pieces = new();
-        [ReadOnly] [SerializeField] private List<int> inFieldIndex = new();
-        [ReadOnly] [SerializeField] private List<int> doneIndex = new ();
+        [SerializeField] private bool showConfig;
+        [SerializeField] private float nowInterval;
+        [SerializeField] private Transform endPoint;
+        [SerializeField] private Camera nowCamera;
+        [SerializeField] private List<PuzzlePiece> pieces = new();
+        [SerializeField] private List<int> inFieldIndex = new();
+        [SerializeField] private List<int> doneIndex = new ();
 
         [SerializeField] private AnchorPoint anchorPointPrefab;
         [SerializeField] private KeyCode dragButton;

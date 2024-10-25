@@ -7,9 +7,9 @@ namespace GameBase
     public class AdsorbedObject: MonoBehaviour
     {
         [SerializeField] protected int index;
-        [ReadOnly] [SerializeField] protected Camera nowCamera;
-        [ReadOnly] [SerializeField] protected Collider2D nowCollider2D;
-        [ReadOnly] [SerializeField] protected KeyCode dragButton;
+        [SerializeField] protected Camera nowCamera;
+        [SerializeField] protected Collider2D nowCollider2D;
+        [SerializeField] protected KeyCode dragButton;
         public Collider2D Collider2D
         {
             set => nowCollider2D = value;
